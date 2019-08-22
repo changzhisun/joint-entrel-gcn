@@ -1,0 +1,67 @@
+\section{Related Work}
+%\subsection*{Entity Relation Extraction}
+There have been extensive studies for entity relation extraction task.
+Early work employs a pipeline of methods that extracts entities first,
+and then determines their relations \citep{zelenko2003kernel,miwa-EtAl:2009:EMNLP,chan-roth:2011:ACL-HLT2011,lin-EtAl:2016:P16-1}.
+As pipeline approaches suffer from error propagation, 
+researchers have proposed methods for joint entity relation extraction.
+
+Parameter sharing is a basic strategy for joint extraction.
+For example,
+\citet{miwa-bansal:2016:P16-1} propose a neural method comprised of 
+a sentence-level RNN for extracting entities,
+and a dependency tree-based RNN to predict relations.
+Their relation model takes hidden states of the entity model as features
+(i.e., the shared parameters).
+Similarly,
+\citet{katiyar-cardie:2017:Long} use a simplified relation model
+based on the entity RNN using the attention mechanism.
+These joint methods do joint learning through sharing parameters and they have no explicit interaction in type inference. 
+
+To further explore interactions between the entity decoder
+and the relation decoder,
+many of them focus on some joint decoding algorithms.
+ILP-based joint decoder \cite{yang2013joint},
+CRF-based joint decoder \cite{katiyar-cardie:2016:P16-1},
+joint sequence labelling tag set \cite{zheng-EtAl:2017:Long},
+beam search \cite{li-ji:2014:P14-1},
+global normalization \cite{zhang-zhang-fu:2017:EMNLP2017},
+and transition system \cite{wang2018joint} are investigated.
+%One similar network structure to our model is proposed in
+%\cite{D18-1249}.
+%They jointly extract entities and relations using
+%``RNN + CNN'' network structure.
+Different from models there, we propose a novel and concise
+joint model to handle joint type inference based on 
+graph convolutional networks,
+which can capture information between multiple entity types 
+and relation types explicitly\footnote{In addition, 
+transfer learning\cite{sun2019distantly}, multi-task learning \cite{sanh2018hierarchical} for this task were also studied.
+In order to make a fair comparison,
+we do not include these models in experiments.}.
+
+
+
+%\subsection*{Graph Neural Networks}
+Recently,
+researches of graph neural networks (GNNs) have been receiving more and more attention 
+because of the great expressive power of graphs \cite{cai2018comprehensive,battaglia2018relational,zhou2018graph}.
+Graph Convolutional Network (GCN) is one of the typical variants of GNN
+\cite{bruna2013spectral,defferrard2016convolutional,kipf2017semi}.
+It has been successfully applied to many NLP tasks
+such as text classification \cite{yao2018graph},
+semantic role labeling \cite{marcheggiani2017encoding},
+relation extraction \cite{zhang2018graph}
+machine translation \cite{bastings2017graph} and
+knowledge base completion \cite{shang2018end}.
+We note that most previous applications of GCN focus on a single job,
+while the joint entity relation extraction consists of multiple sub-tasks.
+Investigating GCN in joint learning scenarios is the main topic of this work.
+A closely related work is \cite{P18-2014}, which focuses on relation extraction with golden entities.
+Our work can be viewed as an end-to-end extension of their work.
+
+
+
+
+
+

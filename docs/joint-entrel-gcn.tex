@@ -1,0 +1,122 @@
+%
+% File acl2019.tex
+%
+%% Based on the style files for ACL 2018, NAACL 2018/19, which were
+%% Based on the style files for ACL-2015, with some improvements
+%%  taken from the NAACL-2016 style
+%% Based on the style files for ACL-2014, which were, in turn,
+%% based on ACL-2013, ACL-2012, ACL-2011, ACL-2010, ACL-IJCNLP-2009,
+%% EACL-2009, IJCNLP-2008...
+%% Based on the style files for EACL 2006 by 
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt,a4paper]{article}
+\usepackage{authblk}
+\usepackage[hyperref]{acl2019}
+\usepackage{times}
+\usepackage{IEEEtrantools}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[inline]{enumitem}
+\usepackage{bm}
+\usepackage{caption}
+
+
+\usepackage{url}
+
+\aclfinalcopy % Uncomment this line for the final submission
+\def\aclpaperid{890} %  Enter the acl Paper ID here
+
+%\setlength\titlebox{5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\newcommand\BibTeX{B\textsc{ib}\TeX}
+
+%\title{Joint Entity Relation Extraction with Graph Convolutional Network}
+\title{Joint Type Inference on Entities and Relations via Graph Convolutional Networks}
+%\title{End-to-End Neural Relation Extraction with Joint Type Inference}
+%\title{Joint Type Inference for Extracting Entities and Relations}
+
+%\author{First Author \\
+%  Affiliation / Address line 1 \\
+%  Affiliation / Address line 2 \\
+%  Affiliation / Address line 3 \\
+%  \texttt{email@domain} \\\And
+%  Second Author \\
+%  Affiliation / Address line 1 \\
+%  Affiliation / Address line 2 \\
+%  Affiliation / Address line 3 \\
+%  \texttt{email@domain} \\}
+
+\author[1, \thanks{\ \ \ Work done while this author was an intern at Microsoft Research Asia.}]{\bf Changzhi Sun  }
+\author[2]{\bf Yeyun Gong}
+\author[1, 3]{\bf Yuanbin Wu}
+\author[2]{\bf Ming Gong}
+\author[2]{\bf Daxing Jiang}
+\author[1]{\\ \bf Man Lan}
+\author[1]{\bf Shiliang Sun}
+\author[2]{\bf Nan Duan}
+\affil[1]{Department of Computer Science and Technology, East China Normal University}
+\affil[2]{Microsoft Research Asia}
+\affil[3]{State Key Laboratory of Cognitive Intelligence, iFLYTEK}
+\affil[  ]{\tt \{changzhisun\}@stu.ecnu.edu.cn \{ybwu,mlan,slsun\}@cs.ecnu.edu.cn}
+%\affil[ ]{\tt \{ybwu,mlan,slsun\}@cs.ecnu.edu.cn}
+\affil[  ]{\tt \{yegong, nanduan, migon, djiang\}@microsoft.com}
+
+
+\begin{document}
+\maketitle
+\begin{abstract}
+  We develop a new paradigm for the task of joint entity relation extraction.
+  It first identifies entity spans,
+  then performs a joint inference on entity types and relation types.
+  To tackle the joint type inference task,
+  we propose a novel graph convolutional network (GCN)
+  running on an entity-relation bipartite graph.
+  By introducing a binary relation classification task,
+  we are able to utilize the structure of entity-relation  bipartite graph in a more efficient and interpretable way.
+  Experiments on ACE05 show that our
+  model outperforms existing joint models in entity performance
+  and is competitive with the state-of-the-art in relation performance.
+\end{abstract}
+
+\input{intro}
+\input{approach}
+\input{experiments}
+\input{related_work}
+
+\section{Conclusion}
+We propose a novel and concise joint model
+based on GCN
+to perform joint type inference
+for entity relation extraction task.
+Compared with existing joint methods,
+it provides a new way to 
+capture the interactions on multiple entity types and relation types explicitly in a sentence.
+%By introducing a binary relation classification task,
+%our method could utilize the structure of entity-relation bipartite graph in a more efficient and interpretable way.
+Experiments on ACE05
+dataset show the effectiveness of the proposed method.
+
+\section*{Acknowledgement}
+
+The authors wish to thank the reviewers for their helpful
+comments and suggestions.
+This research is (partially) supported by
+STCSM (18ZR1411500), NSFC(61673179) and the Foundation of State Key Laboratory of Cognitive Intelligence, iFLYTEK(COGOS-20190003).
+The corresponding authors are Yuanbin Wu and Shiliang Sun.
+
+\bibliography{acl2019}
+\bibliographystyle{acl_natbib}
+
+\end{document}
